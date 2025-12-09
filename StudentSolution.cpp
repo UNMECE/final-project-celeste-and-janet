@@ -48,13 +48,15 @@ void solveProblems(AcequiaManager& manager)
 
 /*example 2 format*/
 
-void solveProblems(AcequiaManager& manager)
+/*void solveProblems(AcequiaManager& manager)
 {
 	auto canals = manager.getCanals();
 	while(!manager.isSolved && manager.hour!=manager.SimulationMax)
 	{
 	//Students will implement this function to solve the probelms
 	//Example: Adjust canal flow rates and directions
+
+	//First of all, this is a fixed scenario. 
 		if(manager.hour==0)
 		{
 			canals[0]->setFlowRate(1);
@@ -70,6 +72,10 @@ void solveProblems(AcequiaManager& manager)
 			canals[0]->toggleOpen(false);
 			canals[1]->toggleOpen(false);
 		}
+
+		//only add solution here!!!
+
+
 	//student may add any necessary functions or check on the progress of each region as the simulation moves forward. 
 	//The manager takes care of updating the waterLevels of each region and waterSource while the student is just expected
 	//to solve how to address the state of each region
@@ -77,7 +83,28 @@ void solveProblems(AcequiaManager& manager)
 		
 		manager.nexthour();
 	}
+*/
+
+/*
+void solveProblems(AcequiaManager& manager)
+{
+	//Accessing canals and regions 
+    auto canals = manager.getCanals();
+    auto regions = manager.getRegions();
+    
+	//Use canals to move the water 
+    while(!manager.isSolved && manager.hour != manager.SimulationMax)
+    {
+		
+		
+		manager.nexthour();
+	}
+
+	// Phase 3: Lock solution to prevent further changes
+	for(auto canal : canals)
+		canal->toggleOpen(false);
 }
+*/
 
 
 /*example 2*/
@@ -122,7 +149,7 @@ void solveProblems(AcequiaManager& manager)
 //This would be the perfect opportunity to identify the tools learned from ECE 231L such as:
 //data structures (stacks, queues, trees(?)), templates, vector class functions, etc... to aid in the algorithm solution
 
-/*
+
 int findCanal(std::vector<Canal *> canals, std::string region)
 {
 	int match;
@@ -162,14 +189,14 @@ void solveProblems(AcequiaManager& manager)
 		
 		if(manager.hour == 0)
 		{
-			for(int i = 0; i<canals.size(); i++)
+			for(int i = 0; i < canals.size(); i++)
 			{
 				canals[i]->toggleOpen(true);
 				canals[i]->setFlowRate(1);
 			}
 		}
 
-		for(int i =0 ; i<regions.size(); i++)
+		for(int i = 0; i < regions.size(); i++)
 		{
 			if(regions[i]->isFlooded == true)
 			{
@@ -179,7 +206,7 @@ void solveProblems(AcequiaManager& manager)
 			else if(regions[i]->isInDrought = true)
 			{
 				//find canal to move water
-				close
+				close;
 			}
 
 			else if(regions[i]->isFlooded == true && regions[i]->isInDrought == true)
@@ -191,4 +218,3 @@ void solveProblems(AcequiaManager& manager)
 		manager.nexthour();
 	}
 }
-*/
